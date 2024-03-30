@@ -42,6 +42,25 @@ void insereFim(TLista* lista, int valor) {
 
 }
 
+void insereOrdenado(TLista* lista, int valor) {
+    TLista* novo = (TLista*) malloc(sizeof(TLista));
+    TLista* p = lista -> prox;
+    TLista* a = lista;
+
+    novo -> info = valor;
+
+    if (p == NULL) {
+        lista -> prox = novo;
+    } else {
+        while (novo -> info > p -> info) {
+            p = p -> prox;
+            a = a -> prox;
+        }
+        novo -> prox = p -> prox;
+        a -> prox = novo;
+    }
+}
+
 void imprimirLista(TLista* lista) {
 
     TLista* p;
@@ -78,7 +97,7 @@ int main() {
     cria_lista(&vetor);
 
     do {
-        printf("1 - Inserir no inicio\n2 - Inserir no fim\n3 - Excluir primeira ocorrencia\n4 - Imprimir lista\n5 - Sair\n\n");
+        printf("1 - Inserir no inicio\n2 - Inserir no fim\n3 - Excluir primeira ocorrencia\n4 - Inserir ordenado\n5 - Imprimir lista\n6 - Sair\n\n");
 
         scanf("%d", &input);
 
@@ -97,16 +116,20 @@ int main() {
                 excluirElemento(&vetor, valor);
                 break;
             case 4:
+                scanf("%d", &valor);
+                insereOrdenado(&vetor, valor);
+                break;
+            case 5:
                 imprimirLista(&vetor);
                 break;
 
-            case 5:
+            case 6:
                 printf("Encerrando...\n");
                 break;
             default:
                 printf("Voce escolheu uma opcao invalida. Tente novamente\n");
         }
-    } while(input != 5);
+    } while(input != 6);
 
     imprimirLista(&vetor);
 
