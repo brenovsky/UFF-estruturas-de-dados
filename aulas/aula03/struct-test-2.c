@@ -52,7 +52,7 @@ void insereOrdenado(TLista* lista, int valor) {
     if (p == NULL) {
         lista -> prox = novo;
     } else {
-        while (novo -> info > p -> info) {
+        while (novo -> info > p -> info) { //está dando erro bem aqui
             p = p -> prox;
             a = a -> prox;
         }
