@@ -124,6 +124,8 @@ int main() {
             case 4:
                 printf("Finalizando...");
                 break;
+            default:
+                printf("Selecione uma opcao valida!");
         }
 
     } while (opcao != 4);
