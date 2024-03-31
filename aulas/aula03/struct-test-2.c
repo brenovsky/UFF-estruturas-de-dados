@@ -50,13 +50,15 @@ void insereOrdenado(TLista* lista, int valor) {
     novo -> info = valor;
 
     if (p == NULL) {
+        novo -> prox = lista -> prox;
         lista -> prox = novo;
+
     } else {
-        while (novo -> info > p -> info) { //está dando erro bem aqui
+        while (novo -> info >= p -> info) {
             p = p -> prox;
             a = a -> prox;
         }
-        novo -> prox = p -> prox;
+        novo -> prox = p;
         a -> prox = novo;
     }
 }
