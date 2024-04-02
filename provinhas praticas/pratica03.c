@@ -29,27 +29,32 @@ TLista* insere_fim (TLista* li, int i) {
 }
 
 TLista* insere_ordenado (TLista* li, int i) {
-    TLista* novo;
-    /* cria novo elemento */
-    novo = (TLista*) malloc(sizeof(TLista));
-    novo->info = i;
-    novo->prox = NULL;
-    TLista* p = li; /* ponteiro para percorrer a lista */
+    TLista* novo = (TLista*) malloc(sizeof(TLista));
+
+    novo -> info = i;
+
+    TLista* p = li;
 
     if (p == NULL) {
         li = novo;
         li -> prox = NULL;
     }
-    else if (novo -> info < li -> info) {
-        TLista* temp = li;
+    else if(i < li -> info) {
+        novo -> prox = li;
         li = novo;
-        novo -> prox = temp;
     } else {
-        while (p->prox->prox != NULL && i < p->prox->info) {
-            p = p->prox;
+        TLista* a = li -> prox;
+
+        /* confere se o proximo ao ponteiro (p) auxiliar é menor que o valor.
+        caso seja,significa que está em alguma posição >depois< de "a" (e itera)
+        caso contrário, o número está uma posicão antes de "a" e o loop quebra
+        quando achar um maior, ou for null, quebra)*/
+        while (p -> prox != NULL &&  a -> info < i) {
+            p = p -> prox;
+            a = a -> prox;
         }
-        p->prox = novo;
-        novo->prox = p->prox;
+        p -> prox = novo;
+        novo -> prox = a;
     }
     return li;
 }
