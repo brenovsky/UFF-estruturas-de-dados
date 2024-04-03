@@ -23,32 +23,31 @@ TLista* insereInicio(TLista* inicio, int valor) {
 }
 
 TLista* insereFim(TLista* inicio, int valor) {
-	TLista* novo = (TLista*) malloc(sizeof(TLista));
+    TLista* novo = (TLista*) malloc(sizeof(TLista));
 	TLista* p = inicio;
 	
 	novo -> info = valor;
-	
-	if (p == NULL) {
+
+    if (p == NULL) {
 		novo -> prox = inicio;
 		inicio = novo;
 	} else {
-		while (p -> prox != NULL) {
+        while (p -> prox != NULL) {
 			p = p -> prox;
 		}
 		
 		novo -> prox = p -> prox;
 		p -> prox = novo;
-		}
+    }
 		
 	return inicio;
 }
 
 TLista* insereOrdenado(TLista* inicio, int valor) {
     TLista* novo = (TLista*) malloc(sizeof(TLista));
+    TLista* p = inicio;
 
     novo -> info = valor;
-
-    TLista* p = inicio;
 
     if (p == NULL) {
         inicio = novo;
@@ -74,6 +73,33 @@ TLista* insereOrdenado(TLista* inicio, int valor) {
     return inicio;
 }
 
+TLista* ordenarLista(TLista* inicio) {
+    TLista* p;
+    int temp;
+
+    while(1) {
+        int count = 0;
+        for (p = inicio; p != NULL; p = p->prox) {
+            //caso para inicio da lista
+            // fazer codigo
+
+            if (p->info > p->prox->info) {
+                temp = p->info;
+                p->info = p->prox->info;
+                p->prox->info = temp;
+
+                count += 1;
+            }
+        }
+        if (count == 0) {
+            break;
+        }
+
+    }
+
+    return inicio;
+}
+
 void imprimirLista(TLista* inicio) {
     TLista* p;
 
@@ -85,7 +111,7 @@ void imprimirLista(TLista* inicio) {
 int main() {
 
     TLista* lista1;//pq nao dá malloc?
-    TLista* lista2;
+    /*TLista* lista2;
     TLista* lista3;
 
     lista1 = criarLista();
@@ -120,7 +146,20 @@ int main() {
     lista3 = insereFim(lista3, 666);
     
     imprimirLista(lista3);
-    printf("\n");
+    printf("\n"); */
+
+    lista1 = criarLista();
+
+    insereInicio(lista1, 78);
+    insereInicio(lista1, 79);
+    insereInicio(lista1, 140);
+    insereInicio(lista1, 7);
+    insereInicio(lista1, 8);
+    insereInicio(lista1, 18);
+
+    ordenarLista(lista1);
+
+    imprimirLista(lista1);
 
     return 0;
 }
