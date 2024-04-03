@@ -42,7 +42,7 @@ void insereFim(TLista* lista, int valor) {
 
 }
 
-void insereOrdenado(TLista* lista, int valor) {
+void insereOrdenado(TLista* lista, int valor) { //consertar erro!!!
     TLista* novo = (TLista*) malloc(sizeof(TLista));
     TLista* p = lista -> prox;
     TLista* a = lista;
