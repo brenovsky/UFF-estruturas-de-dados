@@ -22,6 +22,27 @@ TLista* insereInicio(TLista* inicio, int valor) {
     return novo; //inicio = novo;
 }
 
+TLista* insereFim(TLista* inicio, int valor) {
+	TLista* novo = (TLista*) malloc(sizeof(TLista));
+	TLista* p = inicio;
+	
+	novo -> info = valor;
+	
+	if (p == NULL) {
+		novo -> prox = inicio;
+		inicio = novo;
+	} else {
+		while (p -> prox != NULL) {
+			p = p -> prox;
+		}
+		
+		novo -> prox = p -> prox;
+		p -> prox = novo;
+		}
+		
+	return inicio;
+}
+
 TLista* insereOrdenado(TLista* inicio, int valor) {
     TLista* novo = (TLista*) malloc(sizeof(TLista));
 
@@ -65,12 +86,14 @@ int main() {
 
     TLista* lista1;//pq nao dá malloc?
     TLista* lista2;
+    TLista* lista3;
 
     lista1 = criarLista();
 
     lista1 = insereInicio(lista1, 1);
     lista1 = insereInicio(lista1, 2);
     lista1 = insereInicio(lista1, 3);
+    lista1 = insereFim(lista1, 7);
 
     imprimirLista(lista1);
 
@@ -86,6 +109,18 @@ int main() {
 
 
     imprimirLista(lista2);
+    printf("\n");
+    
+    lista3 = criarLista();
+    
+    lista3 = insereFim(lista3, 10);
+    lista3 = insereFim(lista3, 5);
+    lista3 = insereFim(lista3, 3);
+    lista3 = insereInicio(lista3, 100);
+    lista3 = insereFim(lista3, 666);
+    
+    imprimirLista(lista3);
+    printf("\n");
 
     return 0;
 }
