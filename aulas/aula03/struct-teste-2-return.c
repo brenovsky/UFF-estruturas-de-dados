@@ -103,7 +103,21 @@ TLista* ordenarLista(TLista* inicio) {
 }
 
 TLista* excluirElemento(TLista* inicio, int valor) {
+    TLista* p = inicio;
 
+    if (p == NULL || p -> prox == NULL) {
+        return inicio;
+    } else {
+        TLista* temp;
+        while (p -> prox -> info != valor) {
+            p = p -> prox;
+        }
+        temp = p -> prox -> prox;
+        free(p -> prox);
+        p -> prox = temp;
+    }
+
+    return inicio;
 }
 
 void imprimirLista(TLista* inicio) {
@@ -164,6 +178,8 @@ int main() {
     lista1 = insereInicio(lista1, 18);
 
     lista1 = ordenarLista(lista1);
+
+    lista1 = excluirElemento(lista1, 78);
 
     imprimirLista(lista1);
 
