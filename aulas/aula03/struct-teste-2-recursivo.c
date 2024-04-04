@@ -36,21 +36,16 @@ TLista* insereFim(TLista* inicio, int valor) {
 }
 
 TLista* insereOrdenado(TLista* inicio, int valor) {
-    TLista* novo = (TLista*) malloc(sizeof(TLista));
-
-    novo -> info = valor;
-    novo -> prox = NULL;
-
-    if (inicio != NULL) { //verificar se o ponteiro aponta para null
-        if (valor < inicio -> info) { //se o valor for menor do que a info, o novo aponta pro inicio (> valor) e retorna novo (o novo inicio)
-            novo -> prox = inicio;
-            return novo;
-        }
-        else {
-            return inicio -> prox = insereOrdenado(inicio -> prox, valor);//passa para verificar o próximo
-        }
+    if (inicio == NULL || inicio -> info > valor) {//verifica se chegou no fim ou se o prox elemento é maior que o valor
+    	TLista* novo = (TLista*) malloc(sizeof(TLista));
+    	novo -> info = valor;
+    	
+    	novo -> prox = inicio;
+    	return novo;
     }
-    return novo;
+    
+    inicio -> prox = insereOrdenado(inicio -> prox, valor);//caso não, vai pro próximo
+    return inicio;//retorna inicio para não perder a cabeça da lista
 }
 
 TLista* imprimirLista(TLista* inicio) {
@@ -65,13 +60,12 @@ int main() {
     TLista* lista1;
 
     lista1 = criarLista();
-
+    
+    lista1 = insereOrdenado(lista1, 100);
+	lista1 = insereOrdenado(lista1, 31);
     lista1 = insereOrdenado(lista1, 10);
-    lista1 = insereOrdenado(lista1, 15);
-    lista1 = insereOrdenado(lista1, 9);
-    lista1 = insereOrdenado(lista1, 8);
-    lista1 = insereOrdenado(lista1, 20);
-    lista1 = insereOrdenado(lista1, 21);
+    lista1 = insereOrdenado(lista1, 11);
+    lista1 = insereOrdenado(lista1, 101);
 
     imprimirLista(lista1);
 
