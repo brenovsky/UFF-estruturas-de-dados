@@ -54,7 +54,7 @@ void insereOrdenado(TLista* lista, int valor) { //consertar erro!!!
         lista -> prox = novo;
 
     } else {
-        while (novo -> info >= p -> info) {
+        while (novo -> info >= a -> info) {
             p = p -> prox;
             a = a -> prox;
         }
