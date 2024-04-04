@@ -75,18 +75,21 @@ TLista* insereOrdenado(TLista* inicio, int valor) {
 
 TLista* ordenarLista(TLista* inicio) {
     TLista* p;
+    if (inicio == NULL || inicio -> prox == NULL) {
+        return inicio;
+    }
+
+
+    int count; //numero de trocas
     int temp;
-
     while(1) {
-        int count = 0;
-        for (p = inicio; p != NULL; p = p->prox) {
-            //caso para inicio da lista
-            // fazer codigo
+        count = 0;
 
-            if (p->info > p->prox->info) {
-                temp = p->info;
-                p->info = p->prox->info;
-                p->prox->info = temp;
+        for (p = inicio; p -> prox != NULL; p = p -> prox) {
+            if (p -> info > p -> prox -> info) {
+                temp = p -> info;
+                p -> info = p -> prox -> info;
+                p -> prox -> info = temp;
 
                 count += 1;
             }
@@ -94,10 +97,13 @@ TLista* ordenarLista(TLista* inicio) {
         if (count == 0) {
             break;
         }
-
     }
 
     return inicio;
+}
+
+TLista* excluirElemento(TLista* inicio, int valor) {
+
 }
 
 void imprimirLista(TLista* inicio) {
@@ -150,14 +156,14 @@ int main() {
 
     lista1 = criarLista();
 
-    insereInicio(lista1, 78);
-    insereInicio(lista1, 79);
-    insereInicio(lista1, 140);
-    insereInicio(lista1, 7);
-    insereInicio(lista1, 8);
-    insereInicio(lista1, 18);
+    lista1 = insereInicio(lista1, 78);
+    lista1 = insereInicio(lista1, 79);
+    lista1 = insereInicio(lista1, 140);
+    lista1 = insereInicio(lista1, 7);
+    lista1 = insereInicio(lista1, 8);
+    lista1 = insereInicio(lista1, 18);
 
-    ordenarLista(lista1);
+    lista1 = ordenarLista(lista1);
 
     imprimirLista(lista1);
 
