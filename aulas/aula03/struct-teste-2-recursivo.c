@@ -35,6 +35,17 @@ TLista* insereFim(TLista* inicio, int valor) {
     return inicio;
 }
 
+TLista* inserirOrdenado(TLista* inicio, int valor) {//peida nao xerequinha
+    TLista* novo = (TLista*) malloc(sizeof(TLista));
+
+    novo -> info = valor;
+
+    if (inicio != NULL) {
+        TLista
+    }
+
+}
+
 TLista* imprimirLista(TLista* inicio) {
     if (inicio != NULL) {
         printf("%d\n", inicio -> info);
