@@ -8,11 +8,35 @@
 - **C:** Programming Language
 - **CLion:** IDE
 
-## Schedule
+## 📁 Folders
 
-| Class |                  Theme                   | Status  |
-|:-----:|:----------------------------------------:|:-------:|
-|  01   |          Fundamental C Revision          |   OK    |
-|  02   | Pointers, Arrays and Dynamic Allocations |   OK    |
+|       Folder       |            Description             |
+|:------------------:|:----------------------------------:|
+|       aulas        |         Codes from classes         |
+|       listas       |         Lists of exercises         |
+| provinhas praticas |  Codes from Practical Assignments  |
+| provinhas teoricas | Codes from Theoretical Assignments |
+
+
+## 📅 Schedule
+
+| Class |                   Theme                   | Status |
+|:-----:|:-----------------------------------------:|:------:|
+|  01   |          Fundamental C Revision           |   🟢   |
+|  02   | Pointers, Arrays and Dynamic Allocations  |   🟢   |
+|  03   | Types of Data Structures and Linked Lists |   🟢   |
+|  04   |                 Recursion                 |   🟡   |
+|  05   |             Stacks and Queues             |   🔴   |
+|  06   |               Binary Trees                |   🔴   |
+|  07   |            Search Binary Trees            |   🔴   |
+|  08   |                 AVL Trees                 |   🔴   |
+|  09   |                  Graphs                   |   🔴   |
+|  10   |               Search Graphs               |   🔴   |
+|  11   |                   Hash                    |   🔴   |
+|  12   |                 Disk Hash                 |   🔴   |
+
+
+
+
 
 Some comments are in brazilian portuguese
