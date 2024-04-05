@@ -20,6 +20,10 @@ TPilha* pushElemento(TPilha* topo, int valor) {
 }
 
 TPilha* popElemento(TPilha* topo) {
+    if (topo == NULL) {
+        return topo;
+    }
+
     TPilha* temp = topo -> prox;
     free(topo);
 
@@ -44,6 +48,9 @@ int main() {
     pilha1 = pushElemento(pilha1, 1);
     pilha1 = pushElemento(pilha1, 100);
     pilha1 = pushElemento(pilha1, 1222);
+
+    pilha1 = popElemento(pilha1);
+    pilha1 = popElemento(pilha1);
 
     imprimirPilha(pilha1);
 
