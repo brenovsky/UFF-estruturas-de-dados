@@ -58,13 +58,13 @@ void libera(TFila *f){
 }
 
 void altera_inicio(TFila *f, int elem){
-    //TODO
+    f -> inicio -> info = elem;
 }
 
 void imprime_fila(TFila *f){
     TLista* p;
 
-    for (p = ; p != NULL; p = p -> prox) {
+    for (p = f -> inicio; p != NULL; p = p -> prox) {
         printf("%d ", p -> info);
     }
 }
@@ -80,3 +80,10 @@ int main() {
     imprime_fila(fila);
     libera(fila);
 }
+
+/* ATENTAR-SE AO SEGUINTE:
+- TFila é apenas um struct com um ponteiro para o inicio e para o fim (uma lista duplamente encadeada)
+- inicio e fim são ponteiros TLista (aponta para um nó, portanto dá para acessar info e prox)
+- TFila é diferente de TLista
+- O ponteiro auxiliar que itera pela fila vai apontar para uma struct TLista
+ */
