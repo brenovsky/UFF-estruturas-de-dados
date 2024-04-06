@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "pilha.h"
+
+typedef struct pilha {
+    int info;
+    struct pilha* prox;
+} TPilha;
 
 TPilha* criaPilha() {
     return NULL;
@@ -31,4 +35,24 @@ TPilha* imprimirPilha(TPilha* topo) {
         printf("%d\n", topo -> info);
         imprimirPilha(topo -> prox);
     }
+}
+
+int main() {
+
+    TPilha* pilha1;
+
+    pilha1 = criaPilha();
+
+    pilha1 = pushElemento(pilha1, 10);
+    pilha1 = pushElemento(pilha1, 12);
+    pilha1 = pushElemento(pilha1, 1);
+    pilha1 = pushElemento(pilha1, 100);
+    pilha1 = pushElemento(pilha1, 1222);
+
+    pilha1 = popElemento(pilha1);
+    pilha1 = popElemento(pilha1);
+
+    imprimirPilha(pilha1);
+
+    return 0;
 }
