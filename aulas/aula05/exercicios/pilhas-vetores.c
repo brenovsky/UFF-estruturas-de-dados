@@ -27,7 +27,7 @@ int pilha_vazia(int base, int topo) {
  * retorna -1 caso não consiga inserir na pilha
  *         info caso contrário
  */
-int push(TPilha *pilha, int lim, int *topo, int info) {
+int push(TPilha *pilha, int lim, int *topo, int info) {//não é uma lista dinamica, se trata de um array
     if (pilha_cheia(lim, *topo)) {
         return -1;
     }

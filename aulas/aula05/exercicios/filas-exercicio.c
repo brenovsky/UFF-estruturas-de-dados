@@ -62,7 +62,11 @@ void altera_inicio(TFila *f, int elem){
 }
 
 void imprime_fila(TFila *f){
-    //TODO
+    TLista* p;
+
+    for (p = ; p != NULL; p = p -> prox) {
+        printf("%d ", p -> info);
+    }
 }
 
 int main() {

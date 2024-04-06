@@ -38,7 +38,9 @@ void push(TPilha *pilha, int elem) {
  * Altera o elemento do topo da pilha
  * */
 void altera_topo(TPilha *pilha, int elem) {
-	//TODO
+	if (pilha -> topo != NULL) {
+        pilha -> topo -> info = elem;
+    }
 }
 
 /* *
@@ -46,7 +48,12 @@ void altera_topo(TPilha *pilha, int elem) {
  * retorna o info do elemento excluído
  */
 int pop(TPilha *pilha) {
-	//TODO
+    TLista* temp = pilha -> topo -> prox;// armazena o proximo
+    int i = pilha -> topo -> info; //armazena o valor excluido
+    free(pilha -> topo); //pop
+    pilha -> topo = temp; // o inicio agora vai ser aquele proximo
+
+    return i;
 }
 
 /* *
@@ -54,11 +61,15 @@ int pop(TPilha *pilha) {
  * retorna info do elemento do topo
  */
 int peek(TPilha *pilha) {
-    	//TODO
+    return pilha -> topo -> info;
 }
 
 void imprime_pilha(TPilha *pilha) {
-    //TODO
+    TLista* p;//auxiliar para nao baguncar a pilha (tipo TLista para nao modificar a pilha)
+
+    for (p = pilha -> topo; p != NULL; p = p -> prox) {
+        printf("%d\n", p -> info);
+    }
 }
 
 int main() {
@@ -71,6 +82,10 @@ int main() {
     push(pilha, 3);
     printf("topo: %d\n", peek(pilha));
 
+    altera_topo(pilha, 101);
+
+    printf("%d\n", peek(pilha));
+
     imprime_pilha(pilha);
 
     int info = pop(pilha);
@@ -78,3 +93,10 @@ int main() {
 
     imprime_pilha(pilha);
 }
+
+/* ATENTAR-SE AO SEGUINTE:
+- TPilha é apenas um struct com um ponteiro para o topo
+- topo é um ponteiro TLista (aponta para um nó, portanto dá para acessar info e prox)
+- TPilha é diferente de TLista
+- O ponteiro auxiliar que itera pela pilha vai apontar para uma struct TLista
+ */
