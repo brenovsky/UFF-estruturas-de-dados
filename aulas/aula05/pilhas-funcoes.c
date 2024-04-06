@@ -1,39 +1,49 @@
-#include <stdio.h>
-#include <stdlib.h>
-
-typedef struct lista {
-    int info;
-    struct pilha* prox;
-} TLista;
+#include "pilhas-funcoes.h"
 
 TPilha* criaPilha() {
-    return NULL;
+    TPilha* pilha = (TPilha*) malloc(sizeof(TPilha));
+    pilha -> topo = NULL;
+
+    return pilha;
 }
 
-TPilha* pushElemento(TPilha* topo, int valor) {
-    TPilha* novo = (TPilha*) malloc(sizeof(TPilha));
+TPilha* pushElemento(TPilha* pilha, int valor) {
+    TLista* novo = (TLista*) malloc(sizeof(TLista));
 
     novo -> info = valor;
-    novo -> prox = topo;
 
-    return novo;
-}
+    if (pilha -> topo == NULL) {
+        pilha -> topo = novo;
+        novo -> prox = NULL;
 
-TPilha* popElemento(TPilha* topo) {
-    if (topo == NULL) {
-        return topo;
+        return pilha;
     }
 
-    TPilha* temp = topo -> prox;
-    free(topo);
+    novo -> prox = pilha -> topo;
 
-    return temp;
+    pilha -> topo = novo;
+
+    return pilha;
 }
 
-TPilha* imprimirPilha(TPilha* topo) {
-    if (topo != NULL) {
-        printf("%d\n", topo -> info);
-        imprimirPilha(topo -> prox);
+TPilha* popElemento(TPilha* pilha) {
+    if (pilha -> topo == NULL) {
+        return pilha;
+    }
+
+    TLista* temp = pilha -> topo -> prox;
+    free(pilha -> topo);
+
+    pilha -> topo = temp;
+
+    return pilha;
+}
+
+void imprimirPilha(TPilha* pilha) {
+    TLista* p;
+
+    for (p = pilha -> topo; p != NULL; p = p -> prox){
+        printf("%d\n", p -> info);
     }
 }
 

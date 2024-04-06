@@ -1,6 +1,7 @@
 #include "listas-encadeadas-funcoes.h"
 
 TLista* criarLista() {
+    pilha -> topo = NULL;
     return NULL;
 }
 
