@@ -74,6 +74,7 @@ int main() {
     insere(fila, 5);
     insere(fila, 3);
     insere(fila, 2);
+    altera_inicio(fila, 100);
     imprime_fila(fila);
     int x = retira(fila);
     printf("\nelemento %d retirado da fila\n", x);
