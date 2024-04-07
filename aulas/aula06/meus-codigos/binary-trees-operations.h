@@ -7,11 +7,50 @@
 
 typedef struct bitree {
     int info;
-    struct TLista* esq;
-    struct TLista* dir;
+    struct bitree* esq;
+    struct bitree* dir;
 } TTree;
 
+TTree* createTree() {
+    return NULL;
+}
 
+TTree* insertRoot(int value) {
+    TTree* new = (TTree*) malloc(sizeof(TTree));
+    new -> info = value;
+    new -> esq = NULL;
+    new -> dir = NULL;
+
+    return new;
+}
+
+TTree* insertLeft(TTree* root, int value) {
+    if (root == NULL) {
+        TTree* new = (TTree*) malloc(sizeof(TTree));
+        new -> info = value;
+        new -> esq = NULL;
+        new -> dir = NULL;
+
+        return new;
+    }
+
+    root -> esq = insertLeft(root -> esq, value);
+    return root;
+}
+
+TTree* insertRight(TTree* root, int value) {
+    if (root == NULL) {
+        TTree* new = (TTree*) malloc(sizeof(TTree));
+        new -> info = value;
+        new -> esq = NULL;
+        new -> dir = NULL;
+
+        return new;
+    }
+
+    root -> dir = insertRight(root -> dir, value);
+    return root;
+}
 
 
 #endif //BINARY_TREES_OPERATIONS_H
