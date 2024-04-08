@@ -26,12 +26,7 @@ TTree* insertRoot(int value) {
 
 TTree* insertLeft(TTree* root, int value) {
     if (root == NULL) {
-        TTree* new = (TTree*) malloc(sizeof(TTree));
-        new -> info = value;
-        new -> esq = NULL;
-        new -> dir = NULL;
-
-        return new;
+        return insertRoot(value);
     }
 
     root -> esq = insertLeft(root -> esq, value);
