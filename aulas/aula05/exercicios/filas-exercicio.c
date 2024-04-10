@@ -83,7 +83,7 @@ int main() {
 }
 
 /* ATENTAR-SE AO SEGUINTE:
-- TFila é apenas um struct com um ponteiro para o inicio e para o fim (uma lista duplamente encadeada)
+- TFila é apenas um struct com um ponteiro para o inicio e para o fim (para guiar a fila)
 - inicio e fim são ponteiros TLista (aponta para um nó, portanto dá para acessar info e prox)
 - TFila é diferente de TLista
 - O ponteiro auxiliar que itera pela fila vai apontar para uma struct TLista
