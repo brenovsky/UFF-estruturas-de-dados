@@ -25,6 +25,40 @@ TNoA *criaNo(char ch) {
     return novo;
 }
 
+TNoA* profundidade(TNoA* raiz) {
+    if (raiz != NULL) {
+        printf("%c ", raiz -> info);
+        profundidade(raiz -> esq);
+        profundidade(raiz -> dir);
+    }
+}
+
+
+TNoA* simetrico(TNoA* raiz) {
+    if (raiz != NULL) {
+        simetrico(raiz -> esq);
+        printf("%c ", raiz -> info);
+        simetrico(raiz -> dir);
+    }
+}
+
+TNoA* posOrdem(TNoA* raiz) {
+    if (raiz != NULL) {
+        posOrdem(raiz->esq);
+        posOrdem(raiz->dir);
+        printf("%c ", raiz->info);
+    }
+}
+
+int contarNo(TNoA* raiz, int i) {
+    if (raiz != NULL) {
+        i++;
+        i = contarNo(raiz -> esq, i);
+        i = contarNo(raiz -> dir, i);
+    }
+    return i;
+}
+
 int main(void) {
     TNoA *raiz;
     raiz = criaNo('A');
@@ -33,4 +67,10 @@ int main(void) {
     raiz->dir->esq = criaNo('D');
     raiz->dir->dir = criaNo('E');
     imprime(raiz, 0);
+
+    int nos = contarNo(raiz, 0);
+
+    printf("\n%d\n", nos);
+
+
 };
