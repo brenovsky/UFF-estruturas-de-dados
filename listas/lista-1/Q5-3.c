@@ -4,6 +4,6 @@
 
     Sendo n_0 = 1
 
-    Soma = P.G de i = 1 até i = n-1, 2^i
+    Soma = P.G de i = 1 até i = n-1, 2^i => (2^n) - 1
 
 */
