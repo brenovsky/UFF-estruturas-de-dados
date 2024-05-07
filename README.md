@@ -25,11 +25,11 @@
 |  01   |          Fundamental C Revision           |   🟢   |
 |  02   | Pointers, Arrays and Dynamic Allocations  |   🟢   |
 |  03   | Types of Data Structures and Linked Lists |   🟢   |
-|  04   |                 Recursion                 |   🟡   |
-|  05   |             Stacks and Queues             |   🔴   |
-|  06   |               Binary Trees                |   🔴   |
-|  07   |            Search Binary Trees            |   🔴   |
-|  08   |                 AVL Trees                 |   🔴   |
+|  04   |                 Recursion                 |   🟢   |
+|  05   |             Stacks and Queues             |   🟢   |
+|  06   |               Binary Trees                |   🟢   |
+|  07   |            Search Binary Trees            |   🟢   |
+|  08   |                 AVL Trees                 |   🟡   |
 |  09   |                  Graphs                   |   🔴   |
 |  10   |               Search Graphs               |   🔴   |
 |  11   |                   Hash                    |   🔴   |
