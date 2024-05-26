@@ -59,6 +59,41 @@ void print_tree(TST* root, int tab) {
         print_tree(root->left, tab + 1);
         print_tree(root->right, tab + 1);
     }
+}
 
-    //exclusao
+int children(TST* root) {
+    int i = 0;
+
+    if (root -> left != NULL) i++;
+    if (root -> right != NULL) i++;
+
+    return i;
+}
+
+TST* delete(TST* root, int value) {
+    if (root -> key == value) {
+        if (children(root) == 0) {
+            free(root);
+
+            return NULL;
+        }
+
+        else if (children(root) == 1) {
+            TST* aux;
+
+            if (root -> left != NULL) aux = root -> left;
+            else aux = root -> right;
+
+            free(root);
+            
+            return aux;
+        }
+        // dois filhos
+    }
+
+    else if (root -> key > value) root -> left = delete(root -> left, value);
+
+    else if (root -> key < value) root -> right = delete(root -> right, value);
+
+    return root;
 }
