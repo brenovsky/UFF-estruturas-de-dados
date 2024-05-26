@@ -5,19 +5,27 @@ int main() {
     TST* root = NULL;
     TST* root2 = NULL;
 
-    root = insert(root, 5);
-    root = insert(root, 4);
-    root = insert(root, 6);
-    root = insert(root, 10);
-    root = insert(root, 3);
-    root = insert(root, 7);
-    root = insert(root, 12);
+    root = insert(root, 200);
+    root = insert(root, 100);
+    root = insert(root, 300);
+    root = insert(root, 80);
+    root = insert(root, 150);
+    root = insert(root, 250);
+    root = insert(root, 400);
+    root = insert(root, 350);
+    root = insert(root, 500);
+    root = insert(root, 220);
+    root = insert(root, 270);
+    root = insert(root, 260);
+    root = insert(root, 280);
+    root = insert(root, 275);
+    root = insert(root, 290);
+
+    root = delete(root, 300);
 
     print_tree(root, 0);
 
     int length = count(root, 0);
-
-    //algoritmo de sort
 
     int vector[7] = {3, 4, 5, 6, 7, 10, 12};
 

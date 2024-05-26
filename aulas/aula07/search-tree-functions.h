@@ -70,15 +70,25 @@ int children(TST* root) {
     return i;
 }
 
+TST* greater_right(TST* root) {
+    TST* aux = root;
+
+    while (aux -> right != NULL) {
+        aux = aux -> right;
+    }
+
+    return aux;
+}
+
 TST* delete(TST* root, int value) {
     if (root -> key == value) {
-        if (children(root) == 0) {
+        if (children(root) == 0) { // node
             free(root);
 
             return NULL;
         }
 
-        else if (children(root) == 1) {
+        else if (children(root) == 1) { // 1 child
             TST* aux;
 
             if (root -> left != NULL) aux = root -> left;
@@ -88,7 +98,17 @@ TST* delete(TST* root, int value) {
             
             return aux;
         }
-        // dois filhos
+
+        else { // 2 child
+            TST* greater = greater_right(root -> left);
+
+            root -> key = greater -> key;
+
+            root -> left = delete(root -> left, greater -> key);
+
+            return root;
+        }
+
     }
 
     else if (root -> key > value) root -> left = delete(root -> left, value);
