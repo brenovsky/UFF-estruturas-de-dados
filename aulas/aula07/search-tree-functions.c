@@ -1,4 +1,3 @@
-#include "
 #include "search-tree-functions.h"
 
 
@@ -20,13 +19,11 @@ int main() {
 
     //algoritmo de sort
 
-    int vector[length] = {3, 4, 5, 6, 7, 10, 12};
+    int vector[7] = {3, 4, 5, 6, 7, 10, 12};
 
-    //algoritmo do vetor
+    root2 = balance(root2, vector, 0, length - 1);
 
-
-
-
+    print_tree(root2, 0);
 
     return 0;
 }

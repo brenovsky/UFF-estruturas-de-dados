@@ -36,10 +36,18 @@ int count(TST* root, int i) {
 }
 
 TST* balance(TST* root2, int* vector, int begin, int finish) {
+    if (begin > finish) {
+        return NULL;
+    }
 
-    int mid = (finish - begin) / 2;
+    int mid = (begin + finish) / 2; //calculate middle position
 
+    root2 = insert(root2, vector[mid]);
 
+    root2 -> left = balance(root2 -> left, vector, begin, mid - 1);
+    root2 -> right = balance(root2 -> right, vector, mid + 1, finish);
+
+    return root2;
 }
 
 void print_tree(TST* root, int tab) {
