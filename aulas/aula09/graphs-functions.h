@@ -28,3 +28,25 @@ void print_graph(TGra* g) {
         printf("\n\n");
     }
 }
+
+void libera_viz(TViz* v) {
+    while (v != NULL) {
+        TViz* aux = v;
+
+        v = v -> prox;
+
+        free(aux);
+    }
+}
+
+void libera_grafo(TGra* g) {
+    while (g != NULL) {
+        libera_viz(g -> prim_viz);
+
+        aux = g;
+
+        g = g -> prox;
+
+        free(aux);
+    }
+}
