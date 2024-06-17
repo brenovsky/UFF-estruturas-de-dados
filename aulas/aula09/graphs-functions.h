@@ -12,6 +12,10 @@ typedef struct grafo {
     struct grafo* prox;
 } TGra;
 
+TGra* inicializa(TGra* g) {
+    return NULL;
+}
+
 void print_graph(TGra* g) {
     for (g; g != NULL; g = g -> prox) {
         printf("Vertice: %d\n", g -> id);
