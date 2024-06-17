@@ -11,3 +11,16 @@ typedef struct grafo {
     TViz* prim_viz;
     struct grafo* prox;
 } TGra;
+
+void print_graph(TGra* g) {
+    for (g; g != NULL; g = g -> prox) {
+        printf("Vertice: %d\n", g -> id);
+        printf("Vizinhos: ");
+
+        for (TViz* v = g -> prim_viz; v != NULL; v = v -> prox) {
+            printf("%d ", v => id);
+        }
+
+        printf("\n\n");
+    }
+}
