@@ -50,3 +50,11 @@ void libera_grafo(TGra* g) {
         free(aux);
     }
 }
+
+TGra* search_vertice(TGra* int x) {
+    if (g != NULL) {
+        if (g -> id == x) return g;
+    }
+
+    return g;
+}
