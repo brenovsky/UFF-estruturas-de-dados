@@ -103,3 +103,9 @@ TGra* insert_edge(TGra* g, TViz* v1, TViz* v2) {
         }
     }
 }
+
+TGra* insert_edge_non(TGra* g, TViz* v1, TViz* v2) {
+    g = insert_edge(g, v1, v2);
+
+    return insert(g, v2, v1);
+}
