@@ -84,3 +84,22 @@ TGra* insert_vertice(TGra* g, int x) {
 
     return new;
 }
+
+TGra* insert_edge(TGra* g, TViz* v1, TViz* v2) {
+    TGra* pv1 = search_vertice(g, v1);
+    TGra* pv2 = search_vertice(g, v2);
+
+    if (pv1 && pv2) {
+        TViz* pv3 = search_edge(g, v1, v2);
+
+        if (!pv3) {
+            TViz* aux = pv1 -> prim_viz;
+            TViz* new = (TViz*) malloc(sizeof(TViz));
+
+            new -> id = v2;
+            new -> prox = aux;
+
+            return new;
+        }
+    }
+}
