@@ -36,9 +36,9 @@ TAVL* double_right_rotation(TAVL* root) {
 }
 
 TAVL* double_left_rotation(TAVL* root) {
-    root -> right = left_rotation(root -> right);
+    root -> right = right_rotation(root -> right);
 
-    return right_rotation(root);
+    return left_rotation(root);
 }
 
 TAVL* insert(TAVL* root, int value) {
